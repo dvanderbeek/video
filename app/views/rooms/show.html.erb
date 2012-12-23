@@ -1,9 +1,11 @@
-<div id="videobox">
+<div class="container" style="margin-top: 20px;">
+	<div id="videobox">
 
+	</div>
 </div>
 <script src="http://static.opentok.com/v0.91/js/TB.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-	var apiKey = 366872; 
+	var apiKey = 22210282; 
 	var session_id = "<%= @room.session_id %>"; 
 	var token = "<%= @tok_token %>"; 
 
@@ -15,7 +17,7 @@
 	//Video chat event listeners
 	session.addEventListener('sessionConnected', sessionConnectedHandler);
 	session.addEventListener('streamCreated', streamCreatedHandler);
-    session.addEventListener('streamDestroyed', streamDestroyedHandler);
+  session.addEventListener('streamDestroyed', streamDestroyedHandler);
 
 	session.connect(apiKey, token);
 </script>

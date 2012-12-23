@@ -1,3 +1,3 @@
 class Room < ActiveRecord::Base
-  attr_accessible :name, :public, :session_id
+  attr_accessible :name, :session_id
 end

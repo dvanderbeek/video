@@ -10,7 +10,7 @@ module RoomsHelper
     parts = intervals.collect do |name, new_interval|
       interval /= new_interval
       number, elapsed = elapsed.abs.divmod(interval)
-    "#{number.to_i} #{name}#{"s" unless number == 1}"
+    	"#{number.to_i} #{name}#{"s" unless number == 1}"
     end
     "#{parts.join(", ")} ago."
   end

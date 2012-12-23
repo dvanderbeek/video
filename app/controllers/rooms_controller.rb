@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   def index
     @rooms = Room.order("created_at DESC")
-    @new_room = Room.new
+    @room = Room.new
   end
 
   def create
@@ -9,18 +9,18 @@ class RoomsController < ApplicationController
     session = @opentok.create_session request.remote_addr
     params[:room][:session_id] = session.session_id
 
-    @new_room = Room.new(params[:room])
+    @room = Room.new(params[:room])
 
     respond_to do |format|
-      if @new_room.save
-        format.html { redirect_to("/party/"+@new_room.id.to_s) }
+      if @room.save
+        format.html { redirect_to @room }
       else
         format.html { render :controller => 'rooms', :action => "index" }
       end
     end
   end
 
-  def party
+  def show
     @room = Room.find(params[:id])
 
     config_opentok

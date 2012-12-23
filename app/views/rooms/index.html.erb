@@ -1,20 +1,22 @@
-<div id="newRoom">
-	<%= render 'form' %>
-</div>
+<div class="container">
+	<div id="newRoom">
+		<%= render 'form' %>
+	</div>
 
-<fieldset>
-	<legend>Existing party rooms</legend>
-<table cellpadding="2" cellspacing="5">
-  <tr>
-    <th>Name</th>
-    <th>Started</th>
-  </tr>
- 
-<% @rooms.each do |room| %>
-  <tr>
-    <td align="center" width="300px"><a href="/party/<%= room.id %>"><%= room.name %></a></td>
-    <td><%= start_diff(room.created_at) %></td>
-  </tr>
-<% end %>
-</table>
-</fieldset>
+	<fieldset>
+		<legend>Existing rooms</legend>
+		<table class="table">
+		  <tr>
+		    <th>Name</th>
+		    <th>Started</th>
+		  </tr>
+		 
+		<% @rooms.each do |room| %>
+		  <tr>
+		    <td><%= link_to room.name, room %></td>
+		    <td><%= time_ago_in_words(room.created_at) %> ago</td>
+		  </tr>
+		<% end %>
+		</table>
+	</fieldset>
+</div>
