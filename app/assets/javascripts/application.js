@@ -22,8 +22,8 @@
 	var subscribers = {};
 	var subscriberObj = {};
 
-	var MAX_WIDTH_VIDEO = 264;
-	var MAX_HEIGHT_VIDEO = 198;
+	var MAX_WIDTH_VIDEO = 350;
+	var MAX_HEIGHT_VIDEO = 262;
 
 	var MIN_WIDTH_VIDEO = 200;
 	var MIN_HEIGHT_VIDEO = 150;

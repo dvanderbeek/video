@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.where(:public => true).order("created_at DESC")
+    @rooms = Room.order("created_at DESC")
     @new_room = Room.new
   end
 
@@ -15,8 +15,7 @@ class RoomsController < ApplicationController
       if @new_room.save
         format.html { redirect_to("/party/"+@new_room.id.to_s) }
       else
-        format.html { render :controller => 'rooms',
-               :action => "index" }
+        format.html { render :controller => 'rooms', :action => "index" }
       end
     end
   end
@@ -26,14 +25,13 @@ class RoomsController < ApplicationController
 
     config_opentok
 
-    @tok_token = @opentok.generate_token :session_id =>
-          @room.session_id
+    @tok_token = @opentok.generate_token :session_id => @room.session_id
   end
 
 private
   def config_opentok
     if @opentok.nil?
-      @opentok = OpenTok::OpenTokSDK.new 366872, "29b7411c6858482c4cfa2f53df5c0942b12412a3"
+      @opentok = OpenTok::OpenTokSDK.new 22210282, "a0d3b70709c38f5f33bb9e4588c5eb2836e22ab7"
     end
   end
 end
